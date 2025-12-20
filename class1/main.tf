@@ -19,14 +19,14 @@ resource "aws_iam_user" "lb" {
 
 resource "aws_iam_group" "terraform_class" {
   name = "terraform_class"
-  }
+}
 
   resource "aws_iam_group_membership" "team" {
   name = "tf-testing-group-membership"
 
   users = [
     aws_iam_user.lb.name
- ]
+  ]
 
-group = aws_iam_group.terraform_class.name
+  group = aws_iam_group.terraform_class.name
 }
