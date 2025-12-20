@@ -6,3 +6,12 @@ resource "aws_vpc" "main" {
     managed_by = "https://github.com/almazaidarov/devop.-terra"
   }
 }
+
+resource "aws_iam_user" "lb" {
+  name = "terraform_class"
+  path = "/system/"
+
+  tags = {
+    tag-key = "tag-value"
+  }
+}
