@@ -16,3 +16,8 @@ resource "aws_iam_user" "lb" {
     managed_by = "https://github.com/almazaidarov/devop.-terra"
   }
 }
+
+resource "aws_iam_group" "developers" {
+  name = "terraform_class"
+  }
+  
