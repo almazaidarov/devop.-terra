@@ -12,6 +12,7 @@ resource "aws_iam_user" "lb" {
   path = "/system/"
 
   tags = {
-    tag-key = "tag-value"
+    Name = "terraform_class"
+    managed_by = "https://github.com/almazaidarov/devop.-terra"
   }
 }
