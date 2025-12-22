@@ -8,8 +8,7 @@ resource "aws_vpc" "main" {
 }
 
 
-
-resource "aws_key_pair" "terraform_class2" {
+esource "aws_key_pair" "terraform_class2" {
   key_name   = "terraform_class2"
   public_key = file("~/.ssh/id_rsa.pub")
 }
