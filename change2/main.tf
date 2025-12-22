@@ -30,9 +30,6 @@ resource "aws_instance" "web" {
   vpc_security_group_ids          = [aws_security_group.wordpress-terraform.id]
 } 
 
-output all {
-  
-     value =  aws_instance.web
-}
+
 
 
