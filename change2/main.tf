@@ -14,8 +14,20 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
-resource "aws_instance" "example" {
-  ami           = data.aws_ami.ubuntu.id
-  instance_type = "t3.micro"
 
+resource "aws_security_group" "wordpress-terraform" {
+  name        = "wordpress-terraform"
+  description = "Allow TLS inbound traffic and all outbound traffic"
+}
+
+
+resource "aws_instance" "example" {
+  ami                             = data.aws_ami.ubuntu.id
+  instance_type                   = "t3.micro"
+  associate_public_ip_address     = true
+  availability_zone               = "us-east-1a"
+  user_data                       = file("wordpress.sh")
+  vpc_security_group_ids          = [aws_security_group.wordpress-terraform.id]
 } 
+
+
