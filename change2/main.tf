@@ -21,7 +21,7 @@ resource "aws_security_group" "wordpress-terraform" {
 }
 
 
-resource "aws_instance" "example" {
+resource "aws_instance" "web" {
   ami                             = data.aws_ami.ubuntu.id
   instance_type                   = "t3.micro"
   associate_public_ip_address     = true
@@ -29,5 +29,10 @@ resource "aws_instance" "example" {
   user_data                       = file("wordpress.sh")
   vpc_security_group_ids          = [aws_security_group.wordpress-terraform.id]
 } 
+
+output all {
+  
+     value =  aws_instance.web
+}
 
 
