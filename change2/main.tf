@@ -26,6 +26,7 @@ resource "aws_key_pair" "terraform_class" {
 }
 
 resource "aws_instance" "web" {
+  count                             = 5
   ami                             = data.aws_ami.ubuntu.id
   instance_type                   = "t3.micro"
   associate_public_ip_address     = true
