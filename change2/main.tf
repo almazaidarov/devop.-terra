@@ -1,4 +1,4 @@
- #data "aws_ami" "ubuntu" {
+ data "aws_ami" "ubuntu" {
 #   most_recent = true
 
 #   filter {
@@ -12,7 +12,7 @@
 #   }
 
 #   owners = ["099720109477"] # Canonical
-#}
+}
 
 
 # resource "aws_security_group" "wordpress-terraform" {
