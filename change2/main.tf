@@ -15,7 +15,7 @@
 #   }
 
 #   owners = ["099720109477"] # Canonical
-}
+
 
 
 # resource "aws_security_group" "wordpress-terraform" {
