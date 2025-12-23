@@ -1,4 +1,4 @@
-# data "aws_ami" "ubuntu" {
+ data "aws_ami" "ubuntu" {
 #   most_recent = true
 
 #   filter {
@@ -12,7 +12,7 @@
 #   }
 
 #   owners = ["099720109477"] # Canonical
-# }
+}
 
 
 # resource "aws_security_group" "wordpress-terraform" {
@@ -85,7 +85,7 @@ module "asg" {
   launch_template_description = "Launch template example"
   update_default_version      = true
 
-  image_id          = "data.aws_ami.ubuntu.id"
+  image_id          = data.aws_ami.ubuntu.id
   instance_type     = "t3.micro"
   ebs_optimized     = false
   enable_monitoring = false
