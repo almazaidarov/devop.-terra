@@ -79,12 +79,12 @@ module "asg" {
   vpc_zone_identifier        = [
     module.vpc.private_subnets
   ]
-}
+  
 
 
 
  # Launch template
-  launch_template_name        = "example-asg" {
+  launch_template_name        = "example-asg" 
   launch_template_description = "Launch template example"
   update_default_version      = true
 
@@ -92,5 +92,5 @@ module "asg" {
   instance_type     = "t3.micro"
   ebs_optimized     = false
   enable_monitoring = false
-  
+
 }
