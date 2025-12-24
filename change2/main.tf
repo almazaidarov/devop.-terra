@@ -92,4 +92,5 @@ module "asg" {
   instance_type     = "t3.micro"
   ebs_optimized     = false
   enable_monitoring = false
+  
 }
