@@ -18,10 +18,10 @@
 
 
 
-# resource "aws_security_group" "wordpress-terraform" {
-#   name        = "wordpress-terraform"
-#   description = "Allow TLS inbound traffic and all outbound traffic"
-# }
+resource "aws_security_group" "wordpress-terraform" {
+  name        = "wordpress-terraform"
+  description = "Allow TLS inbound traffic and all outbound traffic"
+}
 
 # resource "aws_key_pair" "terraform_class" {
 #   key_name   = "terraform_class"
