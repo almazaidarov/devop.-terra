@@ -1,7 +1,7 @@
- data "aws_ami" "ubuntu" {
+data "aws_ami" "ubuntu" {
   most_recent = true
 
-  owners = ["099720109477"]  # Canonical (official Ubuntu)
+  owners = ["099720109477"] # Canonical (official Ubuntu)
 
   filter {
     name   = "name"
@@ -57,7 +57,7 @@ module "vpc" {
   azs             = ["us-east-1a", "us-east-1b", "us-east-1c"]
   private_subnets = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
   public_subnets  = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"]
-  
+
   enable_nat_gateway = false
   enable_vpn_gateway = false
 
@@ -68,23 +68,23 @@ module "vpc" {
 
 
 module "asg" {
-  source  = "terraform-aws-modules/autoscaling/aws"
+  source = "terraform-aws-modules/autoscaling/aws"
   # Autoscaling group
-  name = "example-asg"
+  name                      = "example-asg"
   min_size                  = 1
-  max_size                  = 3    
+  max_size                  = 3
   desired_capacity          = 3
   wait_for_capacity_timeout = 0
   health_check_type         = "EC2"
-  vpc_zone_identifier = module.vpc.private_subnets
-
-  
+  vpc_zone_identifier       = module.vpc.private_subnets
 
 
 
 
- # Launch template
-  launch_template_name        = "example-asg" 
+
+
+  # Launch template
+  launch_template_name        = "example-asg"
   launch_template_description = "Launch template example"
   update_default_version      = true
 
@@ -136,10 +136,18 @@ module "alb" {
 
   target_groups = {
     ex-instance = {
+<<<<<<< HEAD
       name_prefix = "tg"
       protocol    = "HTTP"
       port        = 80
       target_type = "instance"
+=======
+      name_prefix = "h1"
+      protocol    = "HTTP"
+      port        = 80
+      target_type = "instance"
+      target_id   = "i-0f6d38a07d50d080f"
+>>>>>>> b6f6e7e (WIP: local terraform changes)
     }
   }
 }
