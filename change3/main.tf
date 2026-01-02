@@ -13,7 +13,7 @@ resource "azurerm_virtual_network" "change3-network" {
 }
 
 
-resource "azurerm_subnet" "change3" {
+resource "azurerm_subnet" "change3-subnet1" {
   name                 = "change3-subnet1"
   resource_group_name  = azurerm_resource_group.change3.name
   virtual_network_name = azurerm_virtual_network.change3.name
