@@ -5,7 +5,7 @@ resource "azurerm_resource_group" "change3" {
 }
 
 # Create a virtual network within the resource group
-resource "azurerm_virtual_network" "change3-network" {
+resource "azurerm_virtual_network" "change3_network" {
   name                = "example-network"
   resource_group_name = azurerm_resource_group.change3.name
   location            = azurerm_resource_group.change3.location
@@ -13,8 +13,8 @@ resource "azurerm_virtual_network" "change3-network" {
 }
 
 
-resource "azurerm_subnet" "change3-subnet1" {
-  name                 = "change3-subnet1"
+resource "azurerm_subnet" "change3_subnet1" {
+  name                 = "change3_subnet1"
   resource_group_name  = azurerm_resource_group.change3.name
   virtual_network_name = azurerm_virtual_network.change3.name
   address_prefixes     = ["10.0.1.0/24"]
@@ -22,8 +22,8 @@ resource "azurerm_subnet" "change3-subnet1" {
 }
 
 
-resource "azurerm_subnet" "change3-subnet2" {
-  name                 = "change3-subnet2"
+resource "azurerm_subnet" "change3_subnet2" {
+  name                 = "change3_subnet2"
   resource_group_name  = azurerm_resource_group.change3.name
   virtual_network_name = azurerm_virtual_network.change3.name
   address_prefixes     = ["10.0.2.0/24"]
@@ -31,8 +31,8 @@ resource "azurerm_subnet" "change3-subnet2" {
 }
 
 
-resource "azurerm_subnet" "change3-subnet3" {
-  name                 = "change3-subnet3"
+resource "azurerm_subnet" "change3_subnet3" {
+  name                 = "change3_subnet3"
   resource_group_name  = azurerm_resource_group.change3.name
   virtual_network_name = azurerm_virtual_network.change3.name
   address_prefixes     = ["10.0.3.0/24"]
