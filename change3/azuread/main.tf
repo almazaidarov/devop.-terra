@@ -5,7 +5,7 @@ resource "random_password" "password" {
 }
 
 resource "azuread_user" "example" {
-  user_principal_name = "jdoe@hashicorp.com"
+  user_principal_name = "jdoe@aidaroff.com"
   display_name        = "J. Doe"
   given_name         = "J."
   surname            = "Doe"
