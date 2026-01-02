@@ -1,13 +1,3 @@
-
-
-
-data "azuread_domains" "aad_domains" {}
-
-output "domain_names" {
-  value = data.azuread_domains.aad_domains.domains.*.domain_name
-}
-
-
 resource "random_password" "password" {
   length           = 16
   special          = false
@@ -27,5 +17,13 @@ resource "azuread_user" "example" {
   city              = "Seattle" 
   postal_code     = "98101"
   state            = "WA"   
-  
+
+}
+
+
+
+resource "azuread_group" "example" {
+  display_name     = "example"
+  owners           = [data.azuread_client_config.current.object_id]
+  security_enabled = true
 }
