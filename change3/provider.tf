@@ -9,6 +9,6 @@ terraform {
 
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
-  resource_provider_registrations = "none" # This is only required when the User, Service Principal, or Identity running Terraform lacks the permissions to register Azure Resource Providers.
   features {}
+  subscription_id = "5f693d88-2d46-4814-b35e-672e4a203a71"
 }
