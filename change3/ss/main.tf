@@ -18,7 +18,7 @@ resource "azurerm_subnet" "internal" {
   address_prefixes     = ["10.0.2.0/24"]
 }
 
-# VM Scale Set
+
 resource "azurerm_linux_virtual_machine_scale_set" "example" {
   name                = "example-vmss"
   resource_group_name = azurerm_resource_group.example.name
@@ -29,9 +29,6 @@ resource "azurerm_linux_virtual_machine_scale_set" "example" {
 
   admin_username = "adminuser"
 
-  identity {
-  type = "None"
- }
 
 
   admin_ssh_key {
