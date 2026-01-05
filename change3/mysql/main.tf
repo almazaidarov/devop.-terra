@@ -1,12 +1,12 @@
-resource "azurerm_resource_group" "example" {
+resource "azurerm_resource_group" "database" {
   name     = "database-rg"
   location = "East US"
 }
 
 resource "azurerm_mssql_server" "example" {
   name                         = "example-sql-server-12345"
-  resource_group_name          = azurerm_resource_group.example.name
-  location                     = azurerm_resource_group.example.location
+  resource_group_name          = azurerm_resource_group.database.name
+  location                     = azurerm_resource_group.database.location
   version                      = "12.0"
 
   administrator_login          = "sqladminuser"
