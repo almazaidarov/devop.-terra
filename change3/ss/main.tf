@@ -33,6 +33,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "example" {
     username   = "adminuser"
     public_key = file("/home/almaz/.ssh/id_ed25519.pub")
 
+
   }
 
   source_image_reference {
