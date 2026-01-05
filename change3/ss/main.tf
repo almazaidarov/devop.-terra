@@ -25,15 +25,13 @@ resource "azurerm_subnet" "internal" {
   name                = "example-vmss"
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
-
-  sku       = "Standard_B2s"
-  instances = 2
-
-  admin_username = "azureuser"
+  sku                 = "Standard_DS1_v2"
+  instances           = 1
+  admin_username      = "adminuser"
 
   admin_ssh_key {
-    username   = "azureuser"
-    public_key = file("/home/almaz/.ssh/id_ed25519.pub")
+    username   = "adminuser"
+    public_key = local.first_public_key
   }
 
   source_image_reference {
@@ -42,7 +40,7 @@ resource "azurerm_subnet" "internal" {
     sku       = "22_04-lts"
     version   = "latest"
   }
-}
+ }
 
   os_disk {
     storage_account_type = "Standard_LRS"
