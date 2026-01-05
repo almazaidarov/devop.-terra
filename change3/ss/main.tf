@@ -1,33 +1,33 @@
-locals {
-  first_public_key = "SHA256:VUC6jVN15A0RbckbKWiMChsvBDXGaP9GOHcEayaDDIg almaz@SandboxHost-639032277261145227"
-}
-
+# Resource Group
 resource "azurerm_resource_group" "example" {
   name     = "example-resources"
   location = "West Europe"
 }
 
-resource "azurerm_virtual_network" "example" {
+# EXISTING Virtual Network (read-only)
+data "azurerm_virtual_network" "example" {
   name                = "example-network"
   resource_group_name = azurerm_resource_group.example.name
-  location            = azurerm_resource_group.example.location
-  address_space       = ["10.0.0.0/16"]
 }
 
+# Subnet (to be created)
 resource "azurerm_subnet" "internal" {
   name                 = "internal"
   resource_group_name  = azurerm_resource_group.example.name
-  virtual_network_name = azurerm_virtual_network.example.name
+  virtual_network_name = data.azurerm_virtual_network.example.name
   address_prefixes     = ["10.0.2.0/24"]
 }
 
+# VM Scale Set
 resource "azurerm_linux_virtual_machine_scale_set" "example" {
   name                = "example-vmss"
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
-  sku                 = "Standard_DS1_v2"
-  instances           = 1
-  admin_username      = "adminuser"
+
+  sku       = "Standard_DS1_v2"
+  instances = 1
+
+  admin_username = "adminuser"
 
   admin_ssh_key {
     username   = "adminuser"
