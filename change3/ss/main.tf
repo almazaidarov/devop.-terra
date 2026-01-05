@@ -29,6 +29,11 @@ resource "azurerm_linux_virtual_machine_scale_set" "example" {
 
   admin_username = "adminuser"
 
+  identity {
+  type = "None"
+ }
+
+
   admin_ssh_key {
     username   = "adminuser"
     public_key = file(pathexpand("~/.ssh/id_rsa.pub"))
