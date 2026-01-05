@@ -2,10 +2,6 @@ locals {
   first_public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCiePcuF7TP7JoptFbSV+EpdeS7Ujkp6RsU2o0BDq/agQ7ODXCL8BUUL4lOinQXq+NHwYNrWcgr7e+7p0bGYya0WaV0BiraZm0bczNfSC3PyawjlakqJXWHQPq7H8TLA5vfxqcsb51NHqwMS8+xrkqILPvTXb9ejC3ESjZy6N6a+KHRg/8ZcrMeyBx6bA/qSSglbR9a8jROVsn3+mucwyhSsgabD2idESf5FYzbAvBEIFjglTx4RHrA0BT6Cp1HHKTZet5iOfW8RkXZtXWmwrNJ24sLusf1zHqdx39K2wwJwSEaHoeXeW+UxcKYBVzgkULnKu7tjIUI8G4AhtRajTcoShvoyYQBmohu32a6TZx1L5vYG8ATIvjII3XSCBLrZue1qAbK2s5f3Ecoh5x/oakioR6W39VUMhQ3dsE6fz15bp+7fdzpjQBcf45XMnsZFpInu4bI1xoTdOUdIXyOMZDwjOyBNi9gaJOgJ/suVU/y7hOiKrXO6IWXG0bmPnig780= almazaidarov@Almazs-MacBook-Pro.local"
 }
 
-provider "azurerm" {
-  features {}
-}
-
 resource "azurerm_resource_group" "example" {
   name     = "example-resources"
   location = "West Europe"
