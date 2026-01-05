@@ -11,6 +11,7 @@ resource "azurerm_mssql_server" "example" {
   administrator_login          = "missadministrator"
   administrator_login_password = "thisIsKat11"
   minimum_tls_version          = "1.2"
+  ssl_minimal_tls_version_enforcement_enabled = true
 
   azuread_administrator {
     login_username = "AzureAD Admin"
