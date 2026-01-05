@@ -2,9 +2,14 @@ locals {
   first_public_key = "SHA256:VUC6jVN15A0RbckbKWiMChsvBDXGaP9GOHcEayaDDIg almaz@SandboxHost-639032277261145227"
 }
 
+
+provider "azurerm" {
+  features {}
+}
+
 resource "azurerm_resource_group" "example" {
   name     = "example-resources"
-  location = "West US 2"
+  location = "West Europe"
 }
 
 resource "azurerm_virtual_network" "example" {
@@ -21,7 +26,7 @@ resource "azurerm_subnet" "internal" {
   address_prefixes     = ["10.0.2.0/24"]
 }
 
- resource "azurerm_linux_virtual_machine_scale_set" "example" {
+resource "azurerm_linux_virtual_machine_scale_set" "example" {
   name                = "example-vmss"
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
@@ -40,7 +45,6 @@ resource "azurerm_subnet" "internal" {
     sku       = "22_04-lts"
     version   = "latest"
   }
- }
 
   os_disk {
     storage_account_type = "Standard_LRS"
@@ -57,4 +61,4 @@ resource "azurerm_subnet" "internal" {
       subnet_id = azurerm_subnet.internal.id
     }
   }
-
+}
