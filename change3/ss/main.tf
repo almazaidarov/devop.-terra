@@ -2,11 +2,6 @@ locals {
   first_public_key = "SHA256:VUC6jVN15A0RbckbKWiMChsvBDXGaP9GOHcEayaDDIg almaz@SandboxHost-639032277261145227"
 }
 
-
-provider "azurerm" {
-  features {}
-}
-
 resource "azurerm_resource_group" "example" {
   name     = "example-resources"
   location = "West Europe"
