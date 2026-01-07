@@ -15,7 +15,7 @@ resource "google_project" "my_project" {
   billing_account = data.google_billing_account.acct.id
 }
 
- resource "null_resource" "set_project" {
+ resource "null_resource" "set-project" {
    triggers = {
      always_run = timestamp()
    }
