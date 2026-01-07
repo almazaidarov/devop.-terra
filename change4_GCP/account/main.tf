@@ -18,7 +18,17 @@ resource "null_resource" "set_project" {
     always_run = timestamp()
   }
 
-  provisioner "local-exec" {
-    command = "gcloud config unset project && gcloud config set project ${google_project.my_project.project_id}"
+ 
+
+
+provisioner "local-exec" {
+    command = <<EOT
+      gcloud config set project ${google_project.my_project.project_id}
+      gcloud services enable \
+        compute.googleapis.com \
+        iam.googleapis.com \
+        cloudresourcemanager.googleapis.com
+    EOT
   }
 }
+
