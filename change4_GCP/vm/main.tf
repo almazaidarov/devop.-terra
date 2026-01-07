@@ -1,3 +1,11 @@
+data "google_billing_account" "acct" {
+  display_name = "My Billing Account"
+  open         = true
+}
+
+
+
+
 resource "google_project" "my_project" {
   project_id      = "my-terraform-project-123-almaz"
   name            = "My Terraform Project"
