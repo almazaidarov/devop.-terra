@@ -10,10 +10,11 @@ resource "random_password" "password" {
 }
 
 resource "google_project" "my_project" {
-  name       = "1st-project"
-  project_id = random_password.password.result
-  billing_account = data.google_billing_account.acct.id
+  name       = "My Terraform Project"
+  project_id = "my-terraform-project-123"
+  org_id     = var.org_id
 }
+
 
  resource "null_resource" "set-project" {
    triggers = {
