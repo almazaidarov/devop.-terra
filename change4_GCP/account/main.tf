@@ -11,7 +11,7 @@ resource "random_password" "password" {
 
 resource "google_project" "my_project" {
   name       = "My Terraform Project"
-  project_id = "my-terraform-project-123"
+  project_id = "tf-${random_id.project.hex}"
   billing_account = data.google_billing_account.acct.id
 }
 
