@@ -5,12 +5,10 @@ data "google_billing_account" "acct" {
 
 
 resource "google_project" "my_project" {
-  name       = "My Terraform Project"
-  project_id = "almaz-tf-${random_id.project.hex}"
-
-  billing_account = data.google_billing_account.acct.id
+  name             = "My Terraform Project"
+  project_id       = "my-terraform-project-123-almaz"
+  billing_account  = data.google_billing_account.acct.id
 }
-
 
 
 resource "null_resource" "set_project" {
