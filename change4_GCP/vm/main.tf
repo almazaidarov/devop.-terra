@@ -1,3 +1,10 @@
+resource "google_project" "my_project" {
+  project_id      = "my-terraform-project-123-almaz"
+  name            = "My Terraform Project"
+  billing_account = data.google_billing_account.acct.id
+}
+
+
 resource "google_compute_instance" "default" {
   name         = "my-instance"
   machine_type = "n2-standard-2"
